@@ -109,7 +109,7 @@ if (TARGET_ENV === 'development') {
           to: 'static/img/'
         },
         {
-          from: 'src/favicon.ico'
+          from: 'src/static/favicon.ico'
         },
       ]),
       new ExtractTextPlugin({
