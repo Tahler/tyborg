@@ -1,18 +1,19 @@
-var path = require('path');
-var webpack = require('webpack');
-var merge = require('webpack-merge');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var autoprefixer = require('autoprefixer');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var entryPath = path.join(__dirname, 'src/static/index.js');
-var outputPath = path.join(__dirname, 'dist');
+import webpack from 'webpack';
+import path from 'path';
+import merge from 'webpack-merge';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import autoprefixer from 'autoprefixer';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+
+const entryPath = path.join(__dirname, 'src/static/index.js');
+const outputPath = path.join(__dirname, 'dist');
 
 // determine build env based on npm run
-var TARGET_ENV = process.env.npm_lifecycle_event === 'build' ? 'production' : 'development';
-var outputFilename = TARGET_ENV === 'production' ? '[name]-[hash].js' : '[name].js';
+const targetEnv = process.env.npm_lifecycle_event === 'build' ? 'production' : 'development';
+const outputFilename = targetEnv === 'production' ? '[name]-[hash].js' : '[name].js';
 
-var commonConfig = {
+const commonConfig = {
   output: {
     path: outputPath,
     filename: `static/js/${outputFilename}`,
@@ -38,8 +39,8 @@ var commonConfig = {
   ],
 };
 
-var envConfig;
-if (TARGET_ENV === 'development') {
+let envConfig;
+if (targetEnv === 'development') {
   envConfig = {
     entry: [
       'webpack-dev-server/client?http://localhost:8080',
@@ -80,7 +81,7 @@ if (TARGET_ENV === 'development') {
       ],
     },
   };
-} else if (TARGET_ENV === 'production') {
+} else if (targetEnv === 'production') {
   envConfig = {
     entry: entryPath,
     module: {
@@ -124,4 +125,6 @@ if (TARGET_ENV === 'development') {
   };
 }
 
-module.exports = merge(commonConfig, envConfig);
+const config = merge(commonConfig, envConfig);
+
+export default config;
