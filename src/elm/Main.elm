@@ -9,9 +9,14 @@ import Components.Hello exposing (hello)
 -- APP
 
 
-main : Program Never Int Msg
+main : Program Never Model Msg
 main =
-    Html.beginnerProgram { model = model, view = view, update = update }
+    Html.program
+        { init = init
+        , update = update
+        , subscriptions = subscriptions
+        , view = view
+        }
 
 
 
@@ -22,9 +27,9 @@ type alias Model =
     Int
 
 
-model : number
-model =
-    0
+init : ( Model, Cmd Msg )
+init =
+    ( 0, Cmd.none )
 
 
 
@@ -36,20 +41,27 @@ type Msg
     | Increment
 
 
-update : Msg -> Model -> Model
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         NoOp ->
-            model
+            ( model, Cmd.none )
 
         Increment ->
-            model + 1
+            ( model + 1, Cmd.none )
+
+
+
+-- SUBSCRIPTIONS
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Sub.none
 
 
 
 -- VIEW
--- Html is defined as: elem [ attribs ][ children ]
--- CSS can be applied via class names or inline style attrib
 
 
 view : Model -> Html Msg
