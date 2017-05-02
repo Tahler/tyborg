@@ -10,7 +10,7 @@
   "author": "Tyler Berry <tyler@berryac.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --hot --inline",
+    "start": "webpack-dev-server --hot --inline",
     "build": "rimraf dist && webpack",
     "reinstall": "npm i rimraf && rimraf node_modules && npm uninstall -g elm && npm i -g elm && npm i && elm package install"
   },
