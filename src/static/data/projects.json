@@ -1,0 +1,34 @@
+[
+    {
+        "name": "NU Code",
+        "tagline": "Neumont University Capstone Project",
+        "completionDate": "2016-09-14",
+        "technologies": [
+            "Angular 2",
+            "TypeScript",
+            "Node.js",
+            "Docker",
+            "Bash"
+        ]
+    },
+    {
+        "name": "Voice Control Chess",
+        "tagline": "Chess app using Android Speech",
+        "completionDate": "2015-09-04",
+        "technologies": [
+            "Java",
+            "Android"
+        ]
+    },
+    {
+        "name": "Soaring Eagle Foundation",
+        "tagline": "Static HTML/CSS/JS website for a non-profit",
+        "completionDate": "2015-01-25",
+        "technologies": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "jQuery"
+        ]
+    }
+]

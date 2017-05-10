@@ -6,8 +6,8 @@ import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 
-const entryPath = path.join(__dirname, 'src/static/index.js');
-const outputPath = path.join(__dirname, 'dist');
+const entryPath = path.resolve(__dirname, 'src/static/index.js');
+const outputPath = path.resolve(__dirname, 'dist');
 
 // determine build env based on npm run
 const targetEnv = process.env.npm_lifecycle_event === 'build' ? 'production' : 'development';
