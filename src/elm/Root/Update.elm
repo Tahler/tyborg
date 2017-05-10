@@ -5,7 +5,7 @@ import Root.Model exposing (Model)
 import Components.ElevatedCard.Update as ElevatedCard
 
 
-update : Msg -> Model -> ( Model, Cmd )
+update : Msg -> Model -> ( Model, Cmd msg )
 update msg model =
     ( { model
         | elevatedCard = ElevatedCard.update msg model.elevatedCard
